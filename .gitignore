@@ -1,0 +1,40 @@
+# Datasets
+# The four MNIST IDX files total ~55 MB and are never committed.
+# See README.md for how to obtain them.
+raw/*
+!raw/.gitkeep
+
+# Trained models
+checkpoints/*
+!checkpoints/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.Python
+
+# Environments
+.venv/
+venv/
+env/
+
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+*.prof
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
