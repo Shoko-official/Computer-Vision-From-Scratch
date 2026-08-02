@@ -1,0 +1,24 @@
+# Nothing here is a runtime dependency: src/cvfs/ imports the standard library only.
+# No [project] table either, nothing gets built or installed.
+
+[dependency-groups]
+dev = [
+    "pytest",
+    "ruff",
+    "matplotlib",    # figures for docs/, never imported from src/cvfs/
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py314"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM", "C4", "RUF"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "--strict-markers"
+markers = [
+    "slow: needs the real MNIST files in raw/",
+]
