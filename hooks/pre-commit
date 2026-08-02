@@ -1,0 +1,19 @@
+#!/bin/sh
+# ruff before every commit, pytest once there is any. --no-verify skips it.
+
+if [ -x .venv/Scripts/ruff.exe ]; then
+    ruff=.venv/Scripts/ruff.exe
+    python=.venv/Scripts/python.exe
+elif [ -x .venv/bin/ruff ]; then
+    ruff=.venv/bin/ruff
+    python=.venv/bin/python
+else
+    echo "pre-commit: no .venv. python -m venv .venv && pip install --group dev" >&2
+    exit 1
+fi
+
+"$ruff" check . || exit 1
+"$ruff" format --check . || exit 1
+
+# Off for now, there is no code and no test yet. I will uncomment as soon as there is any.
+# "$python" -m pytest -q || exit 1

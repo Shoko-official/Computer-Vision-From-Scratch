@@ -33,11 +33,6 @@ Runtime: standard library only. `tkinter`, `math`, `random`, `struct`,
 
 Dev tools: `pytest`, `ruff`, `cProfile`.
 
-Banned anywhere inside `src/cvfs/`: numpy, scipy, pandas, sklearn, torch,
-tensorflow, jax, opencv, pillow, matplotlib. There is a test that parses every
-module with `ast` and fails if one of them shows up, because "I promise I won't
-import numpy" is not a guarantee.
-
 Tkinter draws pixels and reads the mouse. It doesn't compute anything.
 
 ## Data
@@ -70,11 +65,16 @@ ff7bcfd416de33731a308c3f266cc351222c34898ecbeaf847f06e48f7ec33f2  t10k-labels.id
 
 ## Running
 
-Python 3.12 with tkinter (bundled on Windows and macOS, `python3-tk` on Debian).
+Python 3.14 with tkinter (bundled on Windows and macOS, `python3-tk` on Debian).
 
 ```bash
 python -m venv .venv
+.venv/bin/pip install --group dev
+git config core.hooksPath hooks    # ruff and pytest before every commit
 ```
+
+`Scripts/` instead of `bin/` on Windows. The dev tooling is a PEP 735 group in
+`pyproject.toml`, so `--group` wants pip 25.1 or newer.
 
 Entry points, as they land:
 
