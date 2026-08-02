@@ -7,12 +7,10 @@ anything merges. Anything that was hard to get right gets a note in `docs/`.
 
 - [x] MNIST in `raw/`, sizes and hashes checked
 - [x] `.gitignore`, `LICENSE`, `README`
-- [ ] `src/cvfs/` skeleton
-- [ ] `pyproject.toml`: ruff (E,F,I,B,UP,SIM,C4,RUF, line 88), pytest with
+- [x] `src/cvfs/` skeleton
+- [x] `pyproject.toml`: ruff (E,F,I,B,UP,SIM,C4,RUF, line 88), pytest with
       `pythonpath = ["src"]`, `--strict-markers`, a `slow` marker
-- [ ] banned-imports test: walk `src/cvfs/` with `ast`, fail on numpy & co. Then
-      add `import numpy` somewhere on purpose and check it actually goes red.
-- [ ] drop `requirements.txt` once pyproject covers it
+- [x] drop `requirements.txt` once pyproject covers it
 
 ## IDX loader
 
